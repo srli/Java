@@ -6,11 +6,8 @@ public class Sequencer{
 		System.out.println("Starting DNA Sequencer!");
 		Map<String, String[]> dict = create_dict();
 		
-		String[] codons = dict.get("F");
-		System.out.println(Arrays.asList(codons).contains("TTT"));
-
-		String t = get_reverse_complement("ATATAT");
-		System.out.println(t);
+		String coding_strand = get_reverse_complement("ATATAT");
+		String aa_string = codon_to_aa(coding_strand, dict);
 	}
 
 	public static Map<String, String[]> create_dict(){
@@ -27,6 +24,7 @@ public class Sequencer{
 			return map;
 		}
 		catch(Exception e){
+			System.out.println("Error, file not found");
 			return null;
 		}
 	}
@@ -54,5 +52,20 @@ public class Sequencer{
 			}
 		}
 		return out_dna;
+	}
+
+	public static String codon_to_aa(String dna, Map<String, String[]> dict){
+		String codon = "";
+		int i = 0;
+		while(i < dna.length()){
+			codon = dna.substring(i, i+3);
+			i += 3;
+			
+
+		}
+		// String[] codons = dict.get("F");
+		// System.out.println(Arrays.asList(codons).contains("TTT"));
+		return codon;
+
 	}
 }

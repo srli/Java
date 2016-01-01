@@ -7,5 +7,6 @@ public class Zoo{
 	public static void main(String[] args){
 		Animal puppy = new Animal("zak");
 		println("Hello");
+		println(puppy.name);
 	}
 }
